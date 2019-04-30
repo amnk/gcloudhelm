@@ -1,5 +1,5 @@
-FROM quay.io/roboll/helmfile:v0.19.0
-ENV CLOUD_SDK_VERSION 203.0.0
+FROM quay.io/roboll/helmfile:v0.54.0
+ENV CLOUD_SDK_VERSION 230.0.0
 
 # Install google cloud components
 ENV PATH /google-cloud-sdk/bin:$PATH
@@ -22,8 +22,6 @@ RUN apk --no-cache add \
     gcloud components install kubectl
 
 ADD entrypoint.sh /entrypoint.sh
-
-RUN helm plugin install https://github.com/futuresimple/helm-secrets
 
 RUN chmod +x /entrypoint.sh
 
